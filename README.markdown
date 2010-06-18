@@ -6,7 +6,7 @@ It's so fantastically fabulous that you'll want to fork it right away to avoid b
 
 Like the C header file from which this was derived (I mean forked, naturally), error numbers begin at `Sysexits::EX__BASE` (which is way more cool than plain old '64') to reduce the possibility of clashing with other exit statuses that other programs may already return.
 
-The codes are available in two forms, as constants which can be imported into your own namespace via `Kernel.include`, or as a Hash keyed by a symbol derived from the constant name.
+The codes are available in two forms, as constants which can be imported into your own namespace via `Module.include`, or as a Hash keyed by a symbol derived from the constant name.
 
 Allow me to demonstrate:
 
