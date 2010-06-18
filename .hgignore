@@ -1,3 +1,5 @@
 \.yardoc
 docs/api
 ChangeLog
+\.DS_Store
+^pkg/

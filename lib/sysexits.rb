@@ -1,7 +1,16 @@
 #!/usr/bin/env ruby
 
-# sysexits.rb -- Exit status codes for system programs.
-# $Id$
+# = sysexits -- Exit status codes for system programs.
+# 
+# Have you ever wanted to call exit() with an error condition, but
+# weren't sure what number to use?  No? Maybe it's just me, then.
+# 
+# Anyway, I was reading manpages in my spare time, and I stumbled
+# across sysexits(3), but much to my chagrin, I couldn't find a
+# 'sysexits' for Ruby! Well, for the other 2 people that actually
+# care about style(9) as it applies to Ruby code, now there is one!
+# 
+# == License
 # 
 # This file was derived almost entirely from the BSD sysexits.h, which
 # is distributed under the following license:
@@ -37,48 +46,6 @@
 #   OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 #   SUCH DAMAGE.
 #
-
-# Sysexits is a completely awesome collection of human-readable
-# constants for the standard (BSDish) exit codes, used as arguments
-# to Kernel.exit() to indicate a specific error condition to the
-# parent process.
-# 
-# It's so fantastically fabuluous that you'll want to fork it right
-# away to avoid being thought of as that guy that's still using Webrick
-# for his blog. I mean, exit(1) is so passé! This is like the 14-point
-# font of Systems Programming.
-# 
-# Like the C header file from which this was derived (I mean forked,
-# naturally), error numbers begin at Sysexits::EX__BASE (which is way
-# more cool than plain old '64') to reduce the possibility of clashing
-# with other exit statuses that other programs may already return.
-# 
-# The codes are available in two forms, as constants which can be
-# imported into your own namespace via Kernel.include, or as a Hash
-# keyed by a symbol derived from the constant name.
-# 
-# Allow me to demonstrate:
-# 
-#   exit( 69 ) 
-# 
-# Whaaa...? Is that a euphimism?
-# 
-#   include Sysexits
-#   exit EX_UNAVAILABLE
-# 
-# Okay, at least this is readable to people who have used fork() more
-# than twice, but you could do so much better!
-# 
-#   include Sysexits
-#   exit :unavailable
-#
-# Holy Toledo! It's like we're writing Ruby, but our own made-up
-# dialect in which variable++ is possible! Well, okay, it's not quite
-# that cool. But it does look more Rubyish. And no monkeys were patched
-# in the filming of this episode! All the simpletons still exiting
-# with icky *numbers* can still continue blithely along, none the
-# wiser.
-# 
 module Sysexits
 
 	# The library version

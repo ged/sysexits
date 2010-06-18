@@ -44,4 +44,19 @@ describe Sysexits do
 	end
 
 
+	it "overrides Kernel.exit without patching any monkeys" do
+		monkey = Class.new do
+			include Sysexits
+
+			def eek_eek
+				exit :usage
+			end
+		end
+		expect {
+			monkey.new.eek_eek
+		}.to raise_exception( SystemExit, 'exit' ) do |exc|
+			exc.status.should == Sysexits::EX_USAGE
+		end
+	end
+
 end

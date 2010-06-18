@@ -91,7 +91,7 @@ EXTCONF       = EXTDIR + 'extconf.rb'
 
 ARTIFACTS_DIR = Pathname.new( CC_BUILD_ARTIFACTS )
 
-TEXT_FILES    = Rake::FileList.new( %w[Rakefile ChangeLog README LICENSE] )
+TEXT_FILES    = Rake::FileList.new( %w[Rakefile ChangeLog README* LICENSE] )
 BIN_FILES     = Rake::FileList.new( "#{BINDIR}/*" )
 LIB_FILES     = Rake::FileList.new( "#{LIBDIR}/**/*.rb" )
 EXT_FILES     = Rake::FileList.new( "#{EXTDIR}/**/*.{c,h,rb}" )
@@ -178,18 +178,19 @@ SNAPSHOT_GEM_NAME = "#{SNAPSHOT_PKG_NAME}.gem"
 
 # Documentation constants
 API_DOCSDIR = DOCSDIR + 'api'
+README_FILE = TEXT_FILES.find {|path| path =~ /README/ } || 'README'
 RDOC_OPTIONS = [
 	'--tab-width=4',
 	'--show-hash',
 	'--include', BASEDIR.to_s,
-	'--main=README',
+	"--main=#{README_FILE}",
 	"--title=#{PKG_NAME}",
   ]
 YARD_OPTIONS = [
 	'--use-cache',
 	'--no-private',
 	'--protected',
-	'-r', 'README',
+	'-r', README_FILE,
 	'--exclude', 'extconf\\.rb',
 	'--files', 'ChangeLog,LICENSE',
 	'--output-dir', API_DOCSDIR.to_s,
@@ -255,7 +256,7 @@ GEMSPEC   = Gem::Specification.new do |gem|
 
 	gem.has_rdoc          = true
 	gem.rdoc_options      = RDOC_OPTIONS
-	gem.extra_rdoc_files  = %w[ChangeLog README LICENSE]
+	gem.extra_rdoc_files  = TEXT_FILES - ['Rakefile']
 
 	gem.bindir            = BINDIR.relative_path_from(BASEDIR).to_s
 	gem.executables       = BIN_FILES.select {|pn| File.executable?(pn) }.
