@@ -1,50 +1,54 @@
 #!/usr/bin/env ruby
 
-# = sysexits -- Exit status codes for system programs.
+# = sysexits
+# 
+# Exit status codes for system programs.
 # 
 # Have you ever wanted to call exit() with an error condition, but
-# weren't sure what number to use?  No? Maybe it's just me, then.
+# weren't sure what exit status to use?  No? Maybe it's just me, then.
 # 
-# Anyway, I was reading manpages in my spare time, and I stumbled
-# across sysexits(3), but much to my chagrin, I couldn't find a
-# 'sysexits' for Ruby! Well, for the other 2 people that actually
-# care about style(9) as it applies to Ruby code, now there is one!
+# Anyway, I was reading manpages late one evening before retiring to 
+# bed in my palatial estate in rural Oregon, and I stumbled across 
+# sysexits(3). Much to my chagrin, I couldn't find a 'sysexits' for
+# Ruby! Well, for the other 2 people that actually care about style(9) 
+# as it applies to Ruby code, now there is one!
 # 
 # == License
 # 
 # This file was derived almost entirely from the BSD sysexits.h, which
 # is distributed under the following license:
 #
-#   Copyright (c) 1987, 1993
-#     The Regents of the University of California.  All rights reserved.
-#   
-#   Redistribution and use in source and binary forms, with or without
-#   modification, are permitted provided that the following conditions
-#   are met:
-#   1. Redistributions of source code must retain the above copyright
-#      notice, this list of conditions and the following disclaimer.
-#   2. Redistributions in binary form must reproduce the above copyright
-#      notice, this list of conditions and the following disclaimer in the
-#      documentation and/or other materials provided with the distribution.
-#   3. All advertising materials mentioning features or use of this software
-#      must display the following acknowledgement:
-#     This product includes software developed by the University of
-#     California, Berkeley and its contributors.
-#   4. Neither the name of the University nor the names of its contributors
-#      may be used to endorse or promote products derived from this software
-#      without specific prior written permission.
-#   
-#   THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
-#   ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-#   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-#   ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
-#   FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-#   DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
-#   OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-#   HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-#   LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
-#   OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
-#   SUCH DAMAGE.
+# Copyright (c) 1987, 1993
+# The Regents of the University of California.  All rights reserved.
+# 
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+# 3. All advertising materials mentioning features or use of this software
+#    must display the following acknowledgement:
+#        This product includes software developed by the University of
+#        California, Berkeley and its contributors.
+# 4. Neither the name of the University nor the names of its contributors
+#    may be used to endorse or promote products derived from this software
+#    without specific prior written permission.
+# 
+# THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+# OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+# OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
 #
 module Sysexits
 
@@ -132,7 +136,8 @@ module Sysexits
 	EX_CONFIG      = 78
 
 
-	# The maximum listed value
+	# The maximum listed value. Automatically determined because, well, we can
+	# and I'll forget to update this if I ever add any codes.
 	EX__MAX = constants.
 		select {|name| name =~ /^EX_/ }.
 		collect {|name| self.const_get(name) }.max
@@ -140,7 +145,8 @@ module Sysexits
 
 	# Mapping of human-readable Symbols to statuses
 	STATUS_CODES = {
-		#define EX_OK		0	/* successful termination */
+		:ok                          => EX_OK,
+		:success                     => EX_OK,
 
 		:_base                       => EX__BASE,
 
@@ -198,6 +204,8 @@ module Sysexits
 	###############
 
 	### Enhanced exit! 
+	### @param [Symbol, String, Fixnum] status  the exit status, which can be either one of the 
+	###                                         keys of STATUS_CODES or a number.
 	def exit( status=EX_OK )
 		status = case status
 		         when Symbol, String
@@ -207,9 +215,8 @@ module Sysexits
 		         	status
 		         end
 
-		Kernel.exit( status )
+		::Kernel.exit( status )
 	end
-
 
 end # module Sysexits
 

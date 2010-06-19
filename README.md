@@ -6,13 +6,13 @@ It's so fantastically fabulous that you'll want to fork it right away to avoid b
 
 Like the C header file from which this was derived (I mean forked, naturally), error numbers begin at `Sysexits::EX__BASE` (which is way more cool than plain old '64') to reduce the possibility of clashing with other exit statuses that other programs may already return.
 
-The codes are available in two forms, as constants which can be imported into your own namespace via `Module.include`, or as a Hash keyed by a symbol derived from the constant name.
+The codes are available in two forms: as constants which can be imported into your own namespace via `include Sysexits`, or as `Sysexits::STATUS_CODES`, a Hash keyed by Symbols derived from the constant names.
 
-Allow me to demonstrate:
+Allow me to demonstrate. First, the old way:
 
     exit( 69 ) 
 
-Whaaa...? Is that a euphemism? See how unattractive and... well, 1970 that is? We're not changing vaccuum tubes, here, we're _building a totally-awesome future in the Cloud™, people!_ 
+Whaaa...? Is that a euphemism? What's going on? See how unattractive and... well, 1970 that is? We're not changing vaccuum tubes here, people, we're _building a totally-awesome future in the Cloud™!_ 
 
     include Sysexits
     exit EX_UNAVAILABLE
@@ -42,4 +42,5 @@ You can submit bug reports, suggestions, and read more super-exited pointless ma
 
 # License
 
-See the included LICENSE file for licensing details.
+See the included [LICENSE](LICENSE.html) file for licensing details.
+

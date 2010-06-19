@@ -178,7 +178,7 @@ SNAPSHOT_GEM_NAME = "#{SNAPSHOT_PKG_NAME}.gem"
 
 # Documentation constants
 API_DOCSDIR = DOCSDIR + 'api'
-README_FILE = TEXT_FILES.find {|path| path =~ /README/ } || 'README'
+README_FILE = TEXT_FILES.find {|path| path =~ /^README/ } || 'README'
 RDOC_OPTIONS = [
 	'--tab-width=4',
 	'--show-hash',
@@ -256,7 +256,7 @@ GEMSPEC   = Gem::Specification.new do |gem|
 
 	gem.has_rdoc          = true
 	gem.rdoc_options      = RDOC_OPTIONS
-	gem.extra_rdoc_files  = TEXT_FILES - ['Rakefile']
+	gem.extra_rdoc_files  = TEXT_FILES - [ 'Rakefile' ]
 
 	gem.bindir            = BINDIR.relative_path_from(BASEDIR).to_s
 	gem.executables       = BIN_FILES.select {|pn| File.executable?(pn) }.
