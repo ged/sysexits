@@ -4,6 +4,7 @@ excluded_pkgfiles: []
 project_pubdir: /usr/local/www/public/code/
 project_pubhost: deveiate.org
 project_homepage: http://rubygems.org/gems/sysexits
+gem_pubhost: rubygems.org
 project_requirements: {}
 
 release_smtphost: mail.faeriemud.org
@@ -23,8 +24,7 @@ project_summary: Exit status codes for system programs.
 version_file: sysexits.rb
 additional_pkgfiles: []
 
-dev_dependencies: 
-  rake-compiler: ">=0"
+dev_dependencies: {}
 authors: 
   Michael Granger: ged@FaerieMUD.org
 post_install_message: Happy exiting!
