@@ -1,5 +1,14 @@
-\.yardoc
+^commit\-msg\.txt$
+docs/manual/output
 docs/api
-ChangeLog
+^pkg$
+ChangeLog$
+coverage/
+coverage\\.info
+^coverage\.info$
 \.DS_Store
-^pkg/
+~$
+\.orig$
+^\.yardoc/
+docs/.*\.dump$
+^release\.notes$

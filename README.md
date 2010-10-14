@@ -36,7 +36,7 @@ You can check out the current development source with Mercurial like so:
 
     hg clone http://repo.deveiate.org/sysexits
 
-You can submit bug reports, suggestions, and read more super-exited pointless marketing at:
+You can submit bug reports, suggestions, and read more super-excited pointless marketing at:
 
     http://deveiate.org/sysexits.html
 

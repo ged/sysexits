@@ -63,7 +63,7 @@ MANUALDIR     = DOCSDIR + 'manual'
 
 PROJECT_NAME  = 'sysexits'
 PKG_NAME      = PROJECT_NAME.downcase
-PKG_SUMMARY   = 'A Ruby front end to sysexits.h'
+PKG_SUMMARY   = 'Exit status codes for system programs.'
 
 # Cruisecontrol stuff
 CC_BUILD_LABEL     = ENV['CC_BUILD_LABEL']
@@ -238,13 +238,14 @@ GEMSPEC   = Gem::Specification.new do |gem|
 
 	gem.summary           = PKG_SUMMARY
 	gem.description       = [
-		"Have you ever wanted to call exit() with an error condition, but weren't sure what",
-		"number to use? No? Maybe it's just me, then.",
+		"Have you ever wanted to call exit() with an error condition, but",
+		"weren't sure what exit status to use?  No? Maybe it's just me, then.",
 		"",
-		"Anyway, I was reading W. Richard Stephens's book _Advanced Programming in the UNIX Environment_, and",
-		"I wanted to make my program exit with a reasonable exit code just like his C examples, but much",
-		"to my chagrin, I couldn't find a 'sysexits' for Ruby! Well, for the other 2 people that actually",
-		"care about this kind of thing, now there is!",
+		"Anyway, I was reading manpages late one evening before retiring to ",
+		"bed in my palatial estate in rural Oregon, and I stumbled across ",
+		"sysexits(3). Much to my chagrin, I couldn't find a 'sysexits' for",
+		"Ruby! Well, for the other 2 people that actually care about style(9) ",
+		"as it applies to Ruby code, now there is one!",
   	  ].join( "\n" )
 	gem.post_install_message = [
 		"Happy exiting!",
