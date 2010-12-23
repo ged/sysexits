@@ -55,11 +55,12 @@ continue blithely along, none the wiser.
 
 ## Contributing
 
-You can check out the current development source with Mercurial like so:
+You can clone the source with Mercurial, submit bug reports, suggestions, 
+etc., via the project page:
 
-    hg clone http://repo.deveiate.org/sysexits
+    https://bitbucket.org/ged/sysexits
 
-Or if you prefer Git, via its Github mirror:
+Or if you prefer Git, you can clone the source via its Github mirror:
 
     https://github.com/ged/sysexits
 
