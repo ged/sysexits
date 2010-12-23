@@ -53,7 +53,7 @@
 module Sysexits
 
 	# The library version
-	VERSION = '1.0.1'
+	VERSION = '1.0.2'
 
 	# The library's revision id
 	REVISION = %q$Revision$

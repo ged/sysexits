@@ -8,7 +8,7 @@ BEGIN {
 	$LOAD_PATH.unshift( libdir.to_s ) unless $LOAD_PATH.include?( libdir.to_s )
 }
 
-require 'spec'
+require 'rspec'
 require 'sysexits'
 
 describe Sysexits do
@@ -44,7 +44,7 @@ describe Sysexits do
 	end
 
 
-	it "overrides Kernel.exit without patching any monkeys" do
+	it "overrides Kernel.exit without patching any monkeys. I mean freedoms. Or something." do
 		monkey = Class.new do
 			include Sysexits
 
