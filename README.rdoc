@@ -1,48 +1,53 @@
-# sysexits
+= sysexits
 
-* http://deveiate.org/sysexits.html
+project:: https://bitbucket.org/ged/sysexits
+github:: https://github.com/ged/sysexits
+docs:: http://deveiate.org/code/sysexits
 
-## Description
 
-Have you ever wanted to call exit() with an error condition, but weren't sure
-what exit status to use? No? Maybe it's just me, then.
+== Description
+
+Have you ever wanted to call <code>exit()</code> with an error condition, but
+weren't sure what exit status to use? No? Maybe it's just me, then.
 
 Anyway, I was reading manpages late one evening before retiring to bed in my
-palatial estate in rural Oregon, and I stumbled across sysexits(3). Much to my
-chagrin, I couldn't find a 'sysexits' for Ruby! Well, for the other 2 people
-that actually care about style(9) as it applies to Ruby code, now there is
-one!
+palatial estate in rural Oregon, and I stumbled across
+<code>sysexits(3)</code>. Much to my chagrin, I couldn't find a +sysexits+ for
+Ruby! Well, for the other 2 people that actually care about
+<code>style(9)</code> as it applies to Ruby code, now there is one!
 
-Sysexits is a _completely awesome_ collection of human-readable constants for
-the standard (BSDish) exit codes, used as arguments to `Kernel.exit` to
+Sysexits is a *completely* *awesome* collection of human-readable constants for
+the standard (BSDish) exit codes, used as arguments to +exit+ to
 indicate a specific error condition to the parent process.
 
 It's so fantastically fabulous that you'll want to fork it right away to avoid
 being thought of as that guy that's still using Webrick for his blog. I mean,
-`exit(1)` is so passé! This is like the 14-point font of Systems Programming.
+<code>exit(1)</code> is so passé! This is like the 14-point font of Systems
+Programming.
 
 Like the C header file from which this was derived (I mean forked, naturally),
-error numbers begin at `Sysexits::EX__BASE` (which is way more cool than plain
-old '64') to reduce the possibility of clashing with other exit statuses that
-other programs may already return.
+error numbers begin at <code>Sysexits::EX__BASE</code> (which is way more cool
+than plain old +64+) to reduce the possibility of clashing with other exit
+statuses that other programs may already return.
 
 The codes are available in two forms: as constants which can be imported into
-your own namespace via `include Sysexits`, or as `Sysexits::STATUS_CODES`, a
-Hash keyed by Symbols derived from the constant names.
+your own namespace via <code>include Sysexits</code>, or as
+<code>Sysexits::STATUS_CODES</code>, a Hash keyed by Symbols derived from the
+constant names.
 
 Allow me to demonstrate. First, the old way:
 
-    exit( 69 ) 
+    exit( 69 )
 
 Whaaa...? Is that a euphemism? What's going on? See how unattractive and...
 well, 1970 that is? We're not changing vaccuum tubes here, people, we're
-_building a totally-awesome future in the Cloud™!_
+<em>building a totally-awesome future in the Cloud™!</em>
 
     include Sysexits
     exit EX_UNAVAILABLE
 
-Okay, at least this is readable to people who have used fork() more than
-twice, but you could do so much better!
+Okay, at least this is readable to people who have used <code>fork()</code>
+more than twice, but you could do so much better!
 
     include Sysexits
     exit :unavailable
@@ -50,12 +55,24 @@ twice, but you could do so much better!
 Holy Toledo! It's like we're writing Ruby, but our own made-up dialect in
 which variable++ is possible! Well, okay, it's not quite that cool. But it
 does look more Rubyish. And no monkeys were patched in the filming of this
-episode! All the simpletons still exiting with icky *numbers* can still
+episode! All the simpletons still exiting with icky _numbers_ can still
 continue blithely along, none the wiser.
 
-## Contributing
+== Caveats
 
-You can clone the source with Mercurial, submit bug reports, suggestions, 
+At some point, Apple started including their own +sysexits+ library in
++vendor_ruby+, so to load the gem version on a MacOS X 10.7+ box, you need to
+do:
+
+    gem 'sysexits'
+	require 'sysexits'
+
+It's a bit ugly, but there isn't a whole lot I can do about it. Sorry.
+
+
+== Contributing
+
+You can clone the source with Mercurial, submit bug reports, suggestions,
 etc., via the project page:
 
     https://bitbucket.org/ged/sysexits
@@ -78,9 +95,9 @@ You can read more super-exited pointless marketing at:
 Or maybe not.
 
 
-## License
+== License
 
-Copyright (c) 2010, Michael Granger
+Copyright (c) 2010-2012, Michael Granger
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
