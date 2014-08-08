@@ -30,7 +30,7 @@ hoespec = Hoe.spec 'sysexits' do
 		    || echo $?
 
 		I know, I know: so awesome right? Okay, I'll let you bask in the
-		warn glow of superior systems-programming now.
+		warm glow of superior systems-programming now.
 
 	}.gsub( /^\t+/m, '' )
 
