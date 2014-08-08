@@ -1,3 +1,8 @@
+== v1.2.0 [2014-08-08] Michael Granger <ged@FaerieMUD.org>
+
+Remove the post-install message. 😢
+
+
 == v1.1.0 [2012-09-18] Michael Granger <ged@FaerieMUD.org>
 
 Updated docs, added Sysexits::exit!, removed YARD cruft (ick!).

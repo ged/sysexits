@@ -71,7 +71,7 @@
 module Sysexits
 
 	# The library version
-	VERSION = '1.1.0'
+	VERSION = '1.2.0'
 
 	# The library's revision id
 	REVISION = %q$Revision$
@@ -100,11 +100,11 @@ module Sysexits
 	# like "No message" to a mailer (if it cared to catch it).
 	EX_NOINPUT     = 66
 
-	# <b>:nouser,</b> <b>:no_such_user</b> - The user specified did not exist. 
+	# <b>:nouser,</b> <b>:no_such_user</b> - The user specified did not exist.
 	# This might be used for mail addresses or remote logins.
 	EX_NOUSER      = 67
 
-	# <b>:nohost,</b> <b>:no_such_host</b> - The host specified did not exist. 
+	# <b>:nohost,</b> <b>:no_such_host</b> - The host specified did not exist.
 	# This is used in mail addresses or network requests.
 	EX_NOHOST      = 68
 
