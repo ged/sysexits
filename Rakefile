@@ -21,21 +21,6 @@ hoespec = Hoe.spec 'sysexits' do
 	self.dependency 'simplecov', '~> 0.6', :developer
 
 	self.spec_extras[:licenses] = ["BSD"]
-	self.spec_extras[:post_install_message] = %{
-		Get ready to be amazed. I'll bet you can't wait to Exit Like 
-		a Pro®!
-
-		Well, if you want, you can do it right from the command-line! Check 
-		this out:
-
-		  ruby -rubygems -e \\
-		    'require "sysexits"; include Sysexits; exit :software_error' \\
-		    || echo $?
-
-		I know, I know: so awesome right? Okay, I'll let you bask in the
-		warm glow of superior systems-programming now.
-
-	}.gsub( /^\t+/m, '' )
 
 	self.require_ruby_version( '>=1.8.7' )
 	self.hg_sign_tags = true if self.respond_to?( :hg_sign_tags )
